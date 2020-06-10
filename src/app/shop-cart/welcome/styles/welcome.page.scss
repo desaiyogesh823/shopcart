@@ -1,0 +1,124 @@
+// Custom variables
+// Note:  These ones were added by us and have nothing to do with Ionic CSS Custom Properties
+:host {
+  --page-margin: var(--app-broad-margin);
+  --page-background: var(--app-background-shade);
+
+  --page-highlighted-background: var(--ion-color-primary);
+  font-size: 10pt !important;
+}
+
+ion-toolbar {
+  --background: var(#ffffff);
+  --background: #ffffff;
+  color: white;
+  --ion-color-base: white !important;
+}
+
+.user-details-wrapper {
+  background-color: #212733;
+  color: var(--ion-color-light);
+  align-items: center;
+
+  .user-avatar {
+    border: solid 3px var(--ion-color-light);
+  }
+
+}
+
+.feature-style {
+  line-height: 24px;
+  font-size: 11pt;
+  padding-left: 12px;
+  text-align: justify;
+}
+
+
+.error p {
+  color: rgb(230, 3, 3) !important;
+  text-align: left;
+  font-size: 12px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+ul li:before {
+  content: "\2714\0020";
+  color: #00acec !important;
+}
+
+.btn-edit {
+  border-color: #03A9F4;
+  height: 20px;
+  font-size: 12px;
+  color: white;
+  line-height: 0px;
+  top: 25px;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+
+
+.header-md:after {
+  left: 0;
+  bottom: -5px;
+  background-position: left 0 top -2px;
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  background-image: url(data:image/png;base64,y);
+  background-repeat: repeat-x;
+  content: "";
+}
+
+.mat-logBtn {
+  color: #fff;
+  background-color: #00acec;
+  width: 100%;
+
+  .mat-button-wrapper {
+    color: #fff;
+  }
+}
+
+
+h2 {
+  font-size: 12pt;
+}
+
+p {
+  font-size: 10pt;
+}
+
+
+ion-footer {
+  ion-toolbar {
+    --background: var(#00acec);
+    --background: #00acec;
+    color: white;
+    --ion-color-base: white !important;
+  }
+}
+
+
+ion-slides {
+  height: 470px !important;
+  ion-slide {
+    background-size: 100% 100%;
+    width: 100%;
+    height: 100%;
+  }
+
+  .bg-style {
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-color: rgba(0, 0, 0, 0) !important;
+  }
+
+}

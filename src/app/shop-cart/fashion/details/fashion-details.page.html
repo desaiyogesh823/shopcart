@@ -1,0 +1,191 @@
+<ion-header mode="ios" translucent="true" class="ion-no-border ion-no-shadow">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button text="" icon="chevron-back-outline" defaultHref="app/categories"></ion-back-button>
+    </ion-buttons>
+    <ion-title></ion-title>
+    <ion-buttons slot="end">
+      <ion-icon style="font-size: 20px;margin-right: 8px;" class="ion-float-right" name="heart-outline">
+      </ion-icon>
+      <ion-icon style="font-size: 20px;margin-right: 8px;" class="ion-float-right" src="assets/shop-cart/bag.svg">
+      </ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="fashion-details-content">
+  <ion-row class="slider-row">
+    <ion-slides class="details-slides" pager="true" [options]="slidesOptions">
+      <ion-slide class="" *ngFor="let image of details?.showcaseImages">
+        <ion-row class="slide-inner-row">
+          <app-image-shell [mode]="'cover'" animation="spinner" class="showcase-image"
+            [ngClass]="{'centered-image': (image.type === 'square'), 'fill-image': (image.type === 'fill')}"
+            [src]="image.source">
+            <app-aspect-ratio [ratio]="{w:64, h:50}">
+            </app-aspect-ratio>
+          </app-image-shell>
+        </ion-row>
+      </ion-slide>
+    </ion-slides>
+  </ion-row>
+  <div class="description-wrapper ion-text-center">
+    <h3 class="details-name">
+      <app-text-shell animation="gradient" [data]="details?.name"></app-text-shell>
+    </h3>
+    <span class="details-brand">
+      <app-text-shell animation="gradient" [data]="details?.brand"></app-text-shell>
+    </span>
+    <span class="details-price">
+      <app-text-shell animation="gradient" [data]="details?.price | currency:'INR'"></app-text-shell>
+    </span>
+    <span class="details-sale-price">
+      <app-text-shell animation="gradient" [data]="details?.salePrice | currency:'INR'"></app-text-shell>
+    </span>
+  </div>
+  <ion-row class="details-purchase-options-row">
+    <ion-col size="12">
+      <form [formGroup]="radioColorForm">
+        <ion-radio-group formControlName="selected_color">
+          <ion-row class="color-radio-group">
+            <ion-item class="color-radio" style="--color-radio-background: #fc6161;">
+              <app-aspect-ratio [ratio]="{w:1, h:1}">
+                <div class="color-radio-inner-wrapper">
+                  <ion-label class="color-label">Red</ion-label>
+                  <ion-radio value="#fc6161"></ion-radio>
+                </div>
+              </app-aspect-ratio>
+            </ion-item>
+            <ion-item class="color-radio" style="--color-radio-background: #fc9961;">
+              <app-aspect-ratio [ratio]="{w:1, h:1}">
+                <div class="color-radio-inner-wrapper">
+                  <ion-radio value="#fc9961"></ion-radio>
+                </div>
+              </app-aspect-ratio>
+            </ion-item>
+            <ion-item class="color-radio" style="--color-radio-background: #fcea61;">
+              <app-aspect-ratio [ratio]="{w:1, h:1}">
+                <div class="color-radio-inner-wrapper">
+                  <ion-radio value="#fcea61" disabled="true"></ion-radio>
+                </div>
+              </app-aspect-ratio>
+            </ion-item>
+            <ion-item class="color-radio" style="--color-radio-background: #affc61;">
+              <app-aspect-ratio [ratio]="{w:1, h:1}">
+                <div class="color-radio-inner-wrapper">
+                  <ion-radio value="#affc61"></ion-radio>
+                </div>
+              </app-aspect-ratio>
+            </ion-item>
+            <ion-item class="color-radio" style="--color-radio-background: #61fcc5;">
+              <app-aspect-ratio [ratio]="{w:1, h:1}">
+                <div class="color-radio-inner-wrapper">
+                  <ion-radio value="#61fcc5"></ion-radio>
+                </div>
+              </app-aspect-ratio>
+            </ion-item>
+            <ion-item class="color-radio" style="--color-radio-background: #fc61ad;">
+              <app-aspect-ratio [ratio]="{w:1, h:1}">
+                <div class="color-radio-inner-wrapper">
+                  <ion-radio value="#fc61ad"></ion-radio>
+                </div>
+              </app-aspect-ratio>
+            </ion-item>
+            <ion-item class="color-radio" style="--color-radio-background: #b561fc;">
+              <app-aspect-ratio [ratio]="{w:1, h:1}">
+                <div class="color-radio-inner-wrapper">
+                  <ion-label class="color-label">Purple</ion-label>
+                  <ion-radio value="#b561fc"></ion-radio>
+                </div>
+              </app-aspect-ratio>
+            </ion-item>
+            <ion-item class="color-radio" style="--color-radio-background: #6182fc;">
+              <app-aspect-ratio [ratio]="{w:1, h:1}">
+                <div class="color-radio-inner-wrapper">
+                  <ion-label class="color-label">Blue</ion-label>
+                  <ion-radio value="#6182fc"></ion-radio>
+                </div>
+              </app-aspect-ratio>
+            </ion-item>
+            <ion-item class="color-radio" style="--color-radio-background: #61d1fc;">
+              <app-aspect-ratio [ratio]="{w:1, h:1}">
+                <div class="color-radio-inner-wrapper">
+                  <ion-radio value="#61d1fc"></ion-radio>
+                </div>
+              </app-aspect-ratio>
+            </ion-item>
+          </ion-row>
+        </ion-radio-group>
+      </form>
+    </ion-col>
+    <ion-col size="6">
+      <ion-button class="select-variant-btn" color="medium" expand="block" fill="outline" (click)="openColorChooser()">
+        Color</ion-button>
+    </ion-col>
+    <ion-col size="6">
+      <ion-button class="select-variant-btn" color="medium" expand="block" fill="outline" (click)="openSizeChooser()">
+        Size</ion-button>
+    </ion-col>
+    <!-- <ion-col size="12" class="main-call-to-action-col">
+      <ion-button class="add-to-cart-btn" color="dark" expand="block" fill="solid">Add to cart</ion-button>
+    </ion-col> -->
+  </ion-row>
+  <div class="details-description-wrapper">
+    <h3 class="detail-title">About me</h3>
+    <p class="details-description">
+      <app-text-shell animation="gradient" [data]="details?.description" lines="5"></app-text-shell>
+    </p>
+  </div>
+  <div class="details-description-wrapper">
+    <h3 class="detail-title">Looking after me</h3>
+    <p class="details-description">
+      <app-text-shell animation="gradient" [data]="details?.careInstructions" lines="3"></app-text-shell>
+    </p>
+  </div>
+  <div class="details-description-wrapper">
+    <h3 class="detail-title">Product code</h3>
+    <span class="details-description product-code">
+      <app-text-shell animation="gradient" [data]="details?.upc"></app-text-shell>
+    </span>
+  </div>
+  <!-- Related Products -->
+  <div class="related-products-wrapper" *ngIf="details?.relatedProducts && details.relatedProducts.length > 0">
+    <h3 class="detail-alt-title">Why Don't you try?</h3>
+    <ion-row class="related-products-list">
+      <ion-col size="6" class="related-product-item" *ngFor="let relatedProduct of details?.relatedProducts">
+        <div class="item-image-wrapper">
+          <a class="image-anchor">
+            <app-aspect-ratio [ratio]="{w: 3, h: 4}">
+              <app-image-shell class="related-product-image" animation="spinner" [src]="relatedProduct.image"
+                [alt]="'related image'"></app-image-shell>
+            </app-aspect-ratio>
+          </a>
+        </div>
+        <div class="item-details-wrapper">
+          <h4 class="item-name">
+            <a class="name-anchor">
+              <app-text-shell animation="gradient" [data]="relatedProduct.name"></app-text-shell>
+            </a>
+          </h4>
+          <span class="item-sale-price">
+            <app-text-shell animation="gradient" [data]="relatedProduct.salePrice | currency:'INR'"></app-text-shell>
+          </span>
+        </div>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-row>
+    <ion-col size="4" class="ion-no-padding">
+      <button mat-button color="light" class="Clear-button ion-padding" matRipple aria-label="Delete" matTooltip="Delete">
+        Qty: 2
+      </button>
+    </ion-col>
+    <ion-col size="8" class="ion-no-padding">
+      <button mat-button color="light" class="Save-button ion-padding" matRipple aria-label="ADD">
+        ADD TO CART
+      </button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

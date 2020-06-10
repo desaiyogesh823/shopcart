@@ -1,0 +1,120 @@
+<ion-header mode="ios" translucent="true" class="ion-no-border ion-no-shadow">
+  <ion-toolbar>
+    <span slot="start">
+      <img style="height: 45px;" src="assets/shop-cart/logo.png" />
+    </span>
+    <ion-buttons slot="end">
+      <ion-button (click)="skip()">Skip</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content has-header class="register-content" fullscreen="true">
+  <ion-grid class="ion-padding" style="margin-top: 20px;">
+    <form [formGroup]="registerForm" (ngSubmit)="register()">
+      <ion-row>
+        <ion-col size="12" class="ion-text-center">
+          <h4>Sign up</h4>
+          <ion-icon style="font-size: 28pt;" name="remove"></ion-icon>  <ion-icon style="font-size: 28pt;"
+            color="success" name="remove"></ion-icon>
+        </ion-col>
+        <ion-col size="12">
+          <mat-form-field class="example-full-width">
+            <span matPrefix>
+              <ion-icon name="person-outline"></ion-icon>&nbsp;
+            </span>
+            <input matInput type="text" formControlName="username" placeholder="User name">
+          </mat-form-field>
+        </ion-col>
+        <ion-col size="12" size-md>
+          <small *ngIf="registerForm.controls['username'].hasError('required') &&
+          registerForm.controls['username'].touched" class="error">
+            <p>* Please enter your correct username.</p>
+          </small>
+          <small *ngIf="registerForm.controls['username'].hasError('pattern') &&
+          registerForm.controls['username'].touched" class="error">
+            <p>* Incorrect username.</p>
+          </small>
+        </ion-col>
+
+        <ion-col size="12">
+          <mat-form-field class="example-full-width">
+            <span matPrefix>
+              <ion-icon name="mail-outline"></ion-icon>&nbsp;
+            </span>
+            <input matInput type="text" formControlName="Email" placeholder="Email">
+          </mat-form-field>
+        </ion-col>
+        <ion-col size="12" size-md>
+          <small *ngIf="registerForm.controls['Email'].hasError('required') &&
+          registerForm.controls['Email'].touched" class="error">
+            <p>* Please enter your correct Email Address.</p>
+          </small>
+          <small *ngIf="registerForm.controls['Email'].hasError('pattern') &&
+          registerForm.controls['Email'].touched" class="error">
+            <p>* Incorrect Email Address.</p>
+          </small>
+        </ion-col>
+
+        <ion-col size="12">
+          <mat-form-field class="example-full-width">
+            <span matPrefix>
+              <ion-icon name="phone-portrait-outline"></ion-icon>&nbsp;
+            </span>
+            <input matInput type="text" formControlName="phone" placeholder="Mobile number">
+          </mat-form-field>
+        </ion-col>
+        <ion-col size="12" size-md>
+          <small *ngIf="registerForm.controls['phone'].hasError('required') &&
+          registerForm.controls['phone'].touched" class="error">
+            <p>* Please enter your correct mobile number.</p>
+          </small>
+          <small *ngIf="registerForm.controls['phone'].hasError('pattern') &&
+          registerForm.controls['phone'].touched" class="error">
+            <p>* Incorrect mobile number.</p>
+          </small>
+        </ion-col>
+        <ion-col size="12">
+          <mat-form-field class="example-full-width">
+            <span matPrefix>
+              <ion-icon name="lock-closed-outline"></ion-icon>&nbsp;
+            </span>
+            <mat-label> Password </mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" formControlName="Password">
+            <span class="pwd-icon" mat-icon-button matSuffix (click)="hide = !hide" matRipple
+              [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </span>
+          </mat-form-field>
+        </ion-col>
+        <ion-col size="12">
+          <small *ngIf="registerForm.controls['Password'].hasError('required') &&
+          registerForm.controls['Password'].touched" class="error">
+            <p>* Please enter your correct Password.</p>
+          </small>
+          <small *ngIf="registerForm.controls['Password'].hasError('minlength') &&
+          registerForm.controls['Password'].touched" class="error">
+            <p>* Minimum length of password should be 8.</p>
+          </small>
+          <small *ngIf="registerForm.controls['Password'].hasError('maxlength') &&
+          registerForm.controls['Password'].touched" class="error">
+            <p>* Maximum length of password should be 20.</p>
+          </small>
+          <small *ngIf="registerForm.controls['Password'].errors?.pattern &&
+          registerForm.controls['Password'].touched" class="error">
+            <p>* Password can't start with any special characters and can't allow whitespace.</p>
+          </small>
+        </ion-col>
+        <ion-col size="12">
+          <button mat-raised-button class="mat-logBtn" block round color="light" [disabled]="!registerForm.valid"
+            tappable>REGISTER</button>
+        </ion-col>
+        <ion-col size="12" style="margin-top: 18px;">
+          Or sign up with &nbsp; &nbsp;
+          <ion-icon style="color: #0068bb;" name="logo-facebook"></ion-icon> &nbsp; &nbsp;
+          <ion-icon style="color: #48adff;" name="logo-twitter"></ion-icon> &nbsp; &nbsp;
+          <ion-icon style="color: #f00101;" name="logo-google"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-grid>
+</ion-content>

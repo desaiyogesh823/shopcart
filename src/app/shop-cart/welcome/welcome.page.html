@@ -1,0 +1,42 @@
+<!-- <ion-header mode="ios" translucent="true" class="ion-no-border ion-no-shadow">
+  <ion-toolbar>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content [fullscreen]="true">
+  <ion-row>
+    <ion-col size="12" class="ion-text-center  ion-no-padding ">
+      <ion-slides pager="true" [options]="slideOptsOne" #slideWithNav style="height: 100px;">
+        <ion-slide *ngFor="let slide of slides" [ngStyle]="{'background' : 'url(' + slide + ')'}" class="bg-style">
+        </ion-slide>
+      </ion-slides>
+    </ion-col>
+  </ion-row>
+
+  <ion-grid>
+    <ion-row style="padding-top: 2% !important;">
+      <ion-col size="12" class="ion-text-center">
+        <h3> Welcome to <strong>Shop cart</strong></h3>
+        <!-- <hr> -->
+      </ion-col>
+    </ion-row>
+    <ng-container class="ion-text-center">
+      <ion-row>
+        <ion-col size="12">
+          <p class="ion-text-center"> Each online store has its own store and bag,
+            but if you want to go shopping in multiple
+            places at once, so you only have one bag. </p>
+        </ion-col>
+      </ion-row>
+    </ng-container>
+
+
+  </ion-grid>
+</ion-content>
+
+
+<ion-footer translucent="true" class="ion-no-border">
+  <ion-toolbar class="ion-text-center mat-logBtn" (click)="getStarted()">
+    <strong> GET STARTED </strong>
+  </ion-toolbar>
+</ion-footer>

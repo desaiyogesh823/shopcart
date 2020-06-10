@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" (click)="auth.menu()">
+      <ion-icon style="font-size: 24px;" src="assets/shop-cart/menu.svg"></ion-icon>
+    </ion-buttons>
+    <ion-title>
+      <small> Search </small>
+      <!-- <small style="color: #00acec;font-size: 90%;">Shop<span style="color: #24c24e;">cart</span> </small> -->
+      <!-- <img style="height: 4vh;" src="assets/shop-cart/shop-cart.png" /> -->
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-row>
+    <ion-col size="12" class="ion-no-padding ion-text-end">
+      <ion-slides pager="true" [options]="slideOptsOne" #slideWithNav style="height: 100px;">
+        <ion-slide *ngFor="let slide of slides" [ngStyle]="{'background' : 'url(' + slide + ')'}" class="bg-style">
+          <div class="ion-float-right opecity-css ion-padding">
+            <h1 class="ion-no-padding ion-no-margin ion-text-uppercase"><strong> Flat 80% off </strong></h1>
+            <h2 class="ion-no-padding ion-no-margin">on International brands</h2>
+          </div>
+        </ion-slide>
+      </ion-slides>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="categories-list ion-no-padding">
+    <ion-col size="6" class="category-item travel-category" [routerLink]="['/tab/home/fashion']">
+      <app-image-shell [mode]="'cover'" class="category-cover" animation="spinner"
+        [src]="'./assets/shop-cart/kids.png'">
+        <app-aspect-ratio [ratio]="{w:1, h:1}">
+          <a class="category-anchor">
+            <h2 class="category-title"><img style="height: 4vh;margin-top: 130px;"
+                src="assets/shop-cart/kids-wear.jpg" />
+            </h2>
+          </a>
+        </app-aspect-ratio>
+      </app-image-shell>
+    </ion-col>
+    <ion-col size="6" style="height: 300px;" class="category-item travel-category" [routerLink]="['/tab/home/fashion']">
+      <ion-row>
+        <ion-col size="12" style="height: 150px;" class="category-item travel-category">
+          <app-image-shell [mode]="'cover'" class="category-cover" animation="spinner"
+            [src]="'./assets/shop-cart/lady.png'">
+            <app-aspect-ratio style="  top: 90px;" [ratio]="{w:75, h:30}">
+              <a class="category-anchor">
+                <h2 class="category-title"><img style="height: 4vh;" src="assets/shop-cart/women-wear.jpg" />
+                </h2>
+              </a>
+            </app-aspect-ratio>
+          </app-image-shell>
+        </ion-col>
+        <ion-col size="12" style="height: 150px;" class="category-item travel-category"
+          [routerLink]="['/tab/home/fashion']">
+          <app-image-shell [mode]="'cover'" class="category-cover" animation="spinner"
+            [src]="'./assets/shop-cart/men.png'">
+            <app-aspect-ratio style="  top: 90px;" [ratio]="{w:75, h:30}">
+              <a class="category-anchor">
+                <h2 class="category-title"><img style="height: 4vh;" src="assets/shop-cart/mens-wear.jpg" />
+                </h2>
+              </a>
+            </app-aspect-ratio>
+          </app-image-shell>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+</ion-content>

@@ -1,0 +1,45 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title> <small> Filters by</small></ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="closeEmpty()">
+                <ion-icon slot="icon-only" name="close"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true" class="mat-filter-events">
+    <mat-tab-group [selectedIndex]="mat_selectedIndex" (selectedTabChange)="onLinkClick($event)">
+        <mat-tab *ngFor="let item of filterlist; let index = index" [label]="item.Label">
+            <mat-selection-list>
+                <mat-list-option checkboxPosition="before" (click)="onNgModelChange('All',item)"
+                    [selected]="item.isAllSelected">
+                    All Select
+                </mat-list-option>
+            </mat-selection-list>
+
+            <mat-selection-list #list>
+                <mat-list-option checkboxPosition="before" *ngFor="let area of filterOption; let index = index"
+                    (click)="onNgModelChange(area,item)" [selected]="area.isSelected" [value]="area.title">
+                    {{area.title}}
+                </mat-list-option>
+            </mat-selection-list>
+        </mat-tab>
+    </mat-tab-group>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+    <ion-row>
+        <ion-col size="4" class="ion-no-padding">
+            <button mat-button color="light" class="Clear-button ion-padding" matRipple (click)="resetAll()" aria-label="Delete"
+                matTooltip="Delete">
+                CLEAR ALL
+            </button>
+        </ion-col>
+        <ion-col size="8" class="ion-no-padding">
+            <button mat-button color="light" class="Save-button ion-padding" matRipple (click)="closeModal()" aria-label="ADD">
+                APPLY FILTERS
+            </button>
+        </ion-col>
+    </ion-row>
+</ion-footer>

@@ -1,0 +1,10 @@
+<ion-app>
+  <ion-split-pane contentId="main-content">
+    <ion-menu type="overlay" side="start" contentId="main-content" class="my-custom-menu app-sidemenu">
+      <ion-content [fullscreen]="true">
+        <custom-side-menu [menuList]="pageList"></custom-side-menu>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>
